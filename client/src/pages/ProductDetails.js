@@ -25,10 +25,10 @@ const ProductDetails = () => {
   const getProduct = async () => {
     try {
       setLoading(true); // Set loading to true while fetching data
-      const instance = axios.create({
-        baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
-      });
-      const { data } = await instance.get(
+      // const instance = axios.create({
+      //   baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
+      // });
+      const { data } = await axios.get(
         `/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
@@ -40,10 +40,10 @@ const ProductDetails = () => {
   //get similar product
   const getSimilarProduct = async (pid, cid) => {
     try {
-      const instance = axios.create({
-        baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
-      });
-      const { data } = await instance.get(
+      // const instance = axios.create({
+      //   baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
+      // });
+      const { data } = await axios.get(
         `/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
@@ -67,7 +67,7 @@ const ProductDetails = () => {
       <div className="row container product-details col-12 col-md-8 mx-auto ">
         <div className="card m-md-2 m-0 img-w" style={{ borderColor:"#fff" }} >
           <img
-            src={`${process.env.REACT_APP_URL}/api/v1/product/product-photo/${product._id}`}
+            src={`/api/v1/product/product-photo/${product._id}`}
             className="card-img px-auto px-md-3 pt-md-4 w-100"
             alt={product.name}
           />
@@ -107,7 +107,7 @@ const ProductDetails = () => {
           {relatedProducts?.map((p) => (
             <div className="card m-3  card-mob" key={p._id}>
               <img
-                src={`${process.env.REACT_APP_URL}/api/v1/product/product-photo/${p._id}`}
+                src={`/api/v1/product/product-photo/${p._id}`}
                 className="card-img-top"
                 alt={p.name}
                 onClick={() => navigate(`/product/${p.slug}`)}

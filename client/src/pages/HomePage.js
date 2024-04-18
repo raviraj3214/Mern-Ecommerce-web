@@ -24,10 +24,10 @@ const HomePage = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const instance = axios.create({
-        baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
-      });
-      const { data } = await instance.get("/api/v1/category/get-category");
+      // const instance = axios.create({
+      //   baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
+      // });
+      const { data } = await axios.get("/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -43,11 +43,11 @@ const HomePage = () => {
   //get products
   const getAllProducts = async () => {
     try {
-      const instance = axios.create({
-        baseURL: process.env.REACT_APP_URL // Set a base URL for all requests from this instance
-      });
+      // const instance = axios.create({
+      //   baseURL: process.env.REACT_APP_URL // Set a base URL for all requests from this instance
+      // });
       setLoading(true);
-      const { data } = await instance.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -59,10 +59,10 @@ const HomePage = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const instance = axios.create({
-        baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
-      });
-      const { data } = await instance.get("/api/v1/product/product-count");
+      // const instance = axios.create({
+      //   baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
+      // });
+      const { data } = await axios.get("/api/v1/product/product-count");
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -77,10 +77,10 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const instance = axios.create({
-        baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
-      });
-      const { data } = await instance.get(`/api/v1/product/product-list/${page}`);
+      // const instance = axios.create({
+      //   baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
+      // });
+      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -110,10 +110,10 @@ const HomePage = () => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const instance = axios.create({
-        baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
-      });
-      const { data } = await instance.post("/api/v1/product/product-filters", {
+      // const instance = axios.create({
+      //   baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
+      // });
+      const { data } = await axios.post("/api/v1/product/product-filters", {
         checked,
         radio,
       });
@@ -156,7 +156,7 @@ const HomePage = () => {
   {products?.map((p) => (
     <div className="card m-md-2 mx-auto my-2 card-mob " style={{ width: "18rem" }} key={p._id}>
       <img
-        src={`${process.env.REACT_APP_URL}/api/v1/product/product-photo/${p._id}`}
+        src={`/api/v1/product/product-photo/${p._id}`}
         className="card-img-top"
         style={{ objectFit: "cover", objectPosition: "center center", }}
         alt={p.name}

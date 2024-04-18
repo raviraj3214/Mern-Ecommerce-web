@@ -21,10 +21,10 @@ const CategoryProduct = () => {
     try {
       setLoading(true); // Set loading to true while fetching data
 
-      const instance = axios.create({
-        baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
-      });
-      const { data } = await instance.get(
+      // const instance = axios.create({
+      //   baseURL: process.env.REACT_APP_URL, // Set a base URL for all requests from this instance
+      // });
+      const { data } = await axios.get(
         `/api/v1/product/product-category/${params.slug}`
       );
       setProducts(data?.products);
@@ -50,7 +50,7 @@ const CategoryProduct = () => {
               {products?.map((p) => (
                 <div className="card m-2 shadow" key={p._id}>
                   <img
-                    src={`${process.env.REACT_APP_URL}/api/v1/product/product-photo/${p._id}`}
+                    src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                     onClick={() => navigate(`/product/${p.slug}`)}
