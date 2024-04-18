@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "./static/css/main.b40c96eb.css",
+    "main.js": "./static/js/main.e114221b.js",
+    "static/js/787.d5fa4d18.chunk.js": "./static/js/787.d5fa4d18.chunk.js",
+    "static/media/recsmart_11zon.jpg": "./static/media/recsmart_11zon.f49b6d00b340e58f8c5a.jpg",
+    "static/media/latest_headphone.jpg": "./static/media/latest_headphone.4937b492061d7240b0c3.jpg",
+    "static/media/recent_laptop.jpg": "./static/media/recent_laptop.0990ad4b7d3e6faeb1be.jpg",
+    "static/media/latest_headphone_mobile.jpg": "./static/media/latest_headphone_mobile.ac3b135cdc784a26c97d.jpg",
+    "static/media/recent_laptop_mobile.jpg": "./static/media/recent_laptop_mobile.e0bb4396743702f6bd6b.jpg",
+    "index.html": "./index.html",
+    "main.b40c96eb.css.map": "./static/css/main.b40c96eb.css.map",
+    "main.e114221b.js.map": "./static/js/main.e114221b.js.map",
+    "787.d5fa4d18.chunk.js.map": "./static/js/787.d5fa4d18.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b40c96eb.css",
+    "static/js/main.e114221b.js"
+  ]
+}
